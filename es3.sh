@@ -54,6 +54,7 @@ git mv f3.txt f3-Renamed.txt
 git status
 git commit -m "renamed file"
 
+#E)
 git checkout main
 git log --oneline --all --graph
 
