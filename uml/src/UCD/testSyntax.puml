@@ -1,0 +1,34 @@
+@startuml
+
+:G: as g
+:f: as f
+
+(Prenotare tornei)  as p
+(Registrarsi) as reg
+(Pagare) as pay
+
+f -- p
+
+'' extend = facoltativo
+reg ..> p : <<extend>>
+
+'' include = obbligatori
+p ..> pay : <<include>>
+
+rectangle System{
+
+
+(a)
+(b)
+(c)
+
+
+}
+
+
+g - (a)
+g - (b)
+g - (c)
+
+g <|-- f
+@enduml
