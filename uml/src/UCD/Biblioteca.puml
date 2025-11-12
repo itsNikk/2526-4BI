@@ -6,6 +6,7 @@ left to right direction
 :Amministrazione: as A
 :Sistema Scolastico: as SS
 
+'' metto "" perchè altrimenti non legge gli spazi
 rectangle "Biblioteca Digitale" {
   (Login) as UC1
   (Ricercare libro) as UC2
