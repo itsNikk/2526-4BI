@@ -1,10 +1,10 @@
 @startuml
 left to right direction
 
-actor "Studente" as S
-actor "Docente" as D
-actor "Amministrazione" as A
-actor "Sistema Scolastico" as SS
+:Studente: as S
+:Docente: as D
+:Amministrazione: as A
+:Sistema Scolastico: as SS
 
 rectangle "Biblioteca Digitale" {
   (Login) as UC1
