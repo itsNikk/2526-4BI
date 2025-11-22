@@ -6,6 +6,7 @@ class Libro {
     -autore:String
     -ISBN:int
     -prestato:boolean
+    -utenteCorrente:Utente
 }
 
 class Utente{
