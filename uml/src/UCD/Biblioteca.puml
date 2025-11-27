@@ -9,7 +9,7 @@ left to right direction
 '' metto "" perchè altrimenti non legge gli spazi
 rectangle "Biblioteca Digitale" {
   (Login) as UC1
-  (Ricercare libro) as UC2
+  (Ricercare libro) as UC2clas
   (Prenotare libro) as UC3
   (Gestire prestito) as UC4
   (Richiedere proroga prestito) as UC5
@@ -34,7 +34,6 @@ A -- UC9
 SS -- UC1
 
 UC3 ..> UC1 : <<include>>
-
 
 UC3 .> UC2 : <<include>>
 UC5 .> UC4 : <<extend>>
