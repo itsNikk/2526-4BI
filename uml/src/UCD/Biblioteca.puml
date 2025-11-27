@@ -9,7 +9,7 @@ left to right direction
 '' metto "" perchè altrimenti non legge gli spazi
 rectangle "Biblioteca Digitale" {
   (Login) as UC1
-  (Ricercare libro) as UC2clas
+  (Ricercare libro) as UC2
   (Prenotare libro) as UC3
   (Gestire prestito) as UC4
   (Richiedere proroga prestito) as UC5
@@ -20,9 +20,7 @@ rectangle "Biblioteca Digitale" {
 }
 
 S --> UC1
-S -- UC2
 S -- UC3
-S -- UC4
 D --> UC1
 D -- UC2
 D -- UC3
