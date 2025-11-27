@@ -6,12 +6,6 @@
 :Sergente di Scrivania: as sds
 :Agenti di pattuglia: as adp
 
-
-usecase test as "
-ffff
---
-E.P.:"
-
 ''Ordine - I confini del sistema
 rectangle StazionePolizia {
     (Classificare fascicoli) as cf
