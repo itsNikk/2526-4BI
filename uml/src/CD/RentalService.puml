@@ -30,7 +30,10 @@ package vehicles{
 }
 
 package services {
-    class City{}
+    class City{
+        -name:String
+        -scooters: Scooter[]
+    }
 
 }
 
@@ -42,5 +45,7 @@ User <|-- Operatore
 '' Composizione (rel has-a)
     '' in contento NON esiste senza il contenitore
 Scooter "1" o-- "1" Battery
+
+City "1" --> "1..*" Scooter
 
 @enduml
