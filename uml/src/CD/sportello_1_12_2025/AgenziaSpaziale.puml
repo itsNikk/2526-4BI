@@ -1,0 +1,37 @@
+@startuml
+
+package PlanetPizza {
+
+class CentroOperativo {
+    - nome : String
+    - coordinataBaseOrbitale : String
+    - droni : List<DroneConsegna>
+}
+
+class DroneConsegna {
+    - codiceUnivoco : String
+    - capacitàCarico : double
+    - ordini : List<OrdinePizza>
+}
+
+abstract class OrdinePizza {
+    - descrizione : String
+    - peso : double
+    - tempoConsegnaStimato : int
+}
+
+class OrdineStandard {
+}
+
+class OrdineVIP {
+    - livelloPriorità : int
+}
+
+CentroOperativo "1" o-- "0..*" DroneConsegna
+DroneConsegna *-- "0..*" OrdinePizza
+OrdinePizza <|-- OrdineStandard
+OrdinePizza <|-- OrdineVIP
+
+}
+
+@enduml

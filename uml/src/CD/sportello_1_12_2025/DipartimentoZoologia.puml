@@ -1,0 +1,48 @@
+@startuml
+
+left to right direction
+
+package driver{
+    class Main{
+        +{static}main(args:String[])
+    }
+}
+
+package animali {
+    abstract class Creatura {
+        - nome : String
+        - peso : double
+        - accessori : List<AccessorioTracciamento>
+    }
+
+    class AnimaleNormale {
+    }
+
+    class CriptoAnimale {
+        - livelloSegretezza : int
+    }
+}
+
+
+package utilities {
+
+class AccessorioTracciamento {
+    - tipo : String
+    - livelloBatteria : int
+}
+
+class Recinto {
+    - nome : String
+    - animaliNormali : List<AnimaleNormale>
+    - criptoAnimali : List<CriptoAnimale>
+}
+
+Creatura "1" *-- "1..*" AccessorioTracciamento
+Recinto "1" o-- "1..*" AnimaleNormale
+Recinto "1" o-- "0..3" CriptoAnimale
+
+Creatura <|-- AnimaleNormale
+Creatura <|-- CriptoAnimale
+}
+
+@enduml
