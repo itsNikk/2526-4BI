@@ -8,7 +8,7 @@ package animali {
         -name:String
         -peso:double
         -accessori:AccessorioTracciamento[]
-        +addAccessorio(accessorio:AccesorioTracciamento):void
+            +addAccessorio(accessorio:AccesorioTracciamento):void
         +removeAccessorio(accessorio:AccesorioTracciamento):void
         +consultaAccessori():void
         +mangia():void
@@ -37,10 +37,23 @@ package Driver {
     }
 }
 
+class Recinto {
+    -criptoAnimali:CriptoAnimale[3]
+    -animaliNormali:AnimaleNormale[]
+    +addCreatura(creatura:Creatura):void
+    +removeCreatura(creatura:Creatura):void
+    +contaCreature():int
+    +generaListaCreature:Creature[]
+}
+
 
 ''Ereditarietà - punta vuota verso il padre
 Creatura <|-- AnimaleNormale
 Creatura <|-- CriptoAnimale
+
+'' Aggregazione: i ref del contenuto arrivano da fuori la classe contenitore
+CriptoAnimale "0..3" --o "1" Recinto
+AnimaleNormale "1..*" --o "1" Recinto
 
 AccessorioTracciamento <|-- GPS
 AccessorioTracciamento <|-- Microcamera
@@ -48,12 +61,14 @@ AccessorioTracciamento <|-- Microcamera
 ''0..* => da 0 a * elementi
 '' Diamante pieno = composizione
 ''
-Creatura "1" o- "0..*" AccessorioTracciamento
+Creatura "1" *- "0..*" AccessorioTracciamento
 
 
 Main --> Creatura : istanzia
 Main --> AccessorioTracciamento : istanzia
 note on link
     Utile caratterizzare la relazione
+    pe capire il ruolo delle classi
+    Non abusarne
 end note
 @enduml
