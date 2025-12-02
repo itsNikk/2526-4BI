@@ -10,15 +10,19 @@ package animali {
         -accessori:AccessorioTracciamento[]
         +addAccessorio(accessorio:AccesorioTracciamento):void
         +removeAccessorio(accessorio:AccesorioTracciamento):void
-
+        +consultaAccessori():void
+        +mangia():void
+        +generaReportCaratteristiche():String
     }
 
-    class AnimaleAnomalo {
-
+    class AnimaleNormale {
+        +emettiVerso():String
     }
 
     class CriptoAnimale {
         -segretezza:int
+        +updateSegretezza(newVal:int)
+        +isPericoloso():boolean
     }
 }
 
@@ -27,9 +31,15 @@ package accessori {
     class GPS{}
     class Microcamera{}
 }
+package Driver {
+    class Main{
+        +main()
+    }
+}
+
 
 ''Ereditarietà - punta vuota verso il padre
-Creatura <|-- AnimaleAnomalo
+Creatura <|-- AnimaleNormale
 Creatura <|-- CriptoAnimale
 
 AccessorioTracciamento <|-- GPS
@@ -38,6 +48,12 @@ AccessorioTracciamento <|-- Microcamera
 ''0..* => da 0 a * elementi
 '' Diamante pieno = composizione
 ''
-Creatura "1" *- "0..*" AccessorioTracciamento
+Creatura "1" o- "0..*" AccessorioTracciamento
 
+
+Main --> Creatura : istanzia
+Main --> AccessorioTracciamento : istanzia
+note on link
+    Utile caratterizzare la relazione
+end note
 @enduml
