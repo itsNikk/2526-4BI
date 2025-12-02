@@ -7,6 +7,10 @@ package animali {
     class Creatura {
         -name:String
         -peso:double
+        -accessori:AccessorioTracciamento[]
+        +addAccessorio(accessorio:AccesorioTracciamento):void
+        +removeAccessorio(accessorio:AccesorioTracciamento):void
+
     }
 
     class AnimaleAnomalo {
@@ -18,7 +22,7 @@ package animali {
     }
 }
 
-package accessori{
+package accessori {
     class AccessorioTracciamento{}
     class GPS{}
     class Microcamera{}
@@ -31,5 +35,9 @@ Creatura <|-- CriptoAnimale
 AccessorioTracciamento <|-- GPS
 AccessorioTracciamento <|-- Microcamera
 
+''0..* => da 0 a * elementi
+'' Diamante pieno = composizione
+''
+Creatura "1" *- "0..*" AccessorioTracciamento
 
 @enduml
