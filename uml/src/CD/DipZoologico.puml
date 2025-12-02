@@ -1,0 +1,35 @@
+@startuml
+
+'' - private
+'' + pubblico
+
+package animali {
+    class Creatura {
+        -name:String
+        -peso:double
+    }
+
+    class AnimaleAnomalo {
+
+    }
+
+    class CriptoAnimale {
+        -segretezza:int
+    }
+}
+
+package accessori{
+    class AccessorioTracciamento{}
+    class GPS{}
+    class Microcamera{}
+}
+
+''Ereditarietà - punta vuota verso il padre
+Creatura <|-- AnimaleAnomalo
+Creatura <|-- CriptoAnimale
+
+AccessorioTracciamento <|-- GPS
+AccessorioTracciamento <|-- Microcamera
+
+
+@enduml
