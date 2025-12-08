@@ -1,0 +1,66 @@
+@startuml
+left to right direction
+
+' ========== ATTORI ==========
+actor "Coordinatore\nConsegne" as CC
+actor "Direttore\nOperativo" as DO
+actor "Cliente" as CLI
+actor "Supervisore\nSicurezza" as SS
+actor "Tecnico\nSistemi" as TS
+
+' ========== GENERALIZZAZIONE ATTORI ==========
+' Citazione testo: "mantiene tutte le capacità del Coordinatore Consegne"
+DO --|> CC
+
+' ========== SISTEMA ==========
+rectangle "Sistema Gestione Flotta SkyDeliver" {
+
+  ' --- Area Gestione Operativa ---
+  usecase UC1 as "Tracciare Stato
+Consegna"
+  usecase UC2 as "Richiedere
+Modifica Piano Volo"
+  usecase UC3 as "Pubblicare Piano
+Operativo Giornaliero"
+  usecase UC4 as "Notificare
+Coordinatori e Partner"
+
+  ' --- Area Sicurezza ---
+  usecase UC5 as "Monitorare
+Stato Flotta
+--
+E.P.: condizioni critiche
+rilevate"
+  usecase UC6 as "Attivare
+Richiamo
+Emergenza"
+  usecase UC7 as "Notificare
+Direttore Operativo"
+
+  ' --- Area Manutenzione ---
+  usecase UC8 as "Eseguire
+Manutenzione Infrastruttura"
+  usecase UC9 as "Registrare
+Intervento su Log"
+}
+
+CLI -- UC1
+CC -- UC2
+DO -- UC3
+SS -- UC5
+SS -- UC6
+TS -- UC8
+
+' ========== RELAZIONI INCLUDE ==========
+' Include = il caso d'uso base DEVE sempre eseguire il caso incluso
+UC3 ..> UC4 : <<include>>
+
+UC8 ..> UC9 : <<include>>
+
+UC6 ..> UC7 : <<include>>
+
+' ========== RELAZIONI EXTEND ==========
+' Extend = il caso d'uso base PUÒ opzionalmente essere esteso
+UC6 ..> UC5 : <<extend>>
+
+@enduml
