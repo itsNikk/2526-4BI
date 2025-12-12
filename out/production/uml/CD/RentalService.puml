@@ -1,0 +1,51 @@
+@startuml
+package users {
+    abstract class User {
+        -id:int
+        -name:String
+        -email: String
+        + {abstract} login() : void
+        + {abstract} logout(): void
+    }
+    class Cliente {
+        +login():void
+        +logout():void
+    }
+    class Operatore {
+        +login():void
+        +logout():void
+        +performMaintanence():void
+    }
+}
+
+package vehicles{
+    class Battery{
+        -model: String
+        -level:int
+
+    }
+    class Scooter {
+        -battery:Battery
+    }
+}
+
+package services {
+    class City{
+        -name:String
+        -scooters: Scooter[]
+    }
+
+}
+
+User <|-- Cliente
+User <|-- Operatore
+
+'' Aggregazione (rel. has-a)
+    '' contenuto esiste anche senza il contenitore
+'' Composizione (rel has-a)
+    '' in contento NON esiste senza il contenitore
+Scooter "1" o-- "1" Battery
+
+City "1" --> "1..*" Scooter
+
+@enduml

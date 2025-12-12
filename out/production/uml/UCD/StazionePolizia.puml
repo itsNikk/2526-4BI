@@ -1,0 +1,53 @@
+@startuml
+
+:Capo di Polizia: as cp
+:Dipendente: as dip
+:Detective: as det
+:Sergente di Scrivania: as sds
+:Agenti di pattuglia: as adp
+
+''Ordine - I confini del sistema
+rectangle StazionePolizia {
+    (Classificare fascicoli) as cf
+    (Organizzare colloqui privati sindaco) as ocs
+    (fare Rapporto al capo di polizia) as fr
+
+    '' usecase "alias" as "descrizione"
+    usecase p as "Pattugliare
+    --
+    E.P.: se notata illegalità "
+    (aggiornare archivio) as arch
+    (Interrogare sospettati) as ints
+    ''(Interrogare) as int
+    usecase int as "
+    Interrogare testimoni
+    --
+    E.P.: se testimone VIP "
+    (investigare) as inv
+}
+
+cp -- cf
+cp -- ocs
+
+''Verso irrilevante
+dip <|-- det
+dip <|-- sds
+dip <|-- adp
+dip <|-- cp
+
+dip -- fr
+
+adp -- p
+
+arch .> p : <<extend>>
+
+det -- int
+det -- inv
+det -- ints
+sds -- ints
+sds -- inv
+
+int ..> arch : <<include>>
+int <.. ocs : <<extend>>
+
+@enduml
