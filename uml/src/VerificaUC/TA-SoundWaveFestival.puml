@@ -1,0 +1,85 @@
+@startuml
+left to right direction
+
+' ========== ATTORI ==========
+actor "Coordinatore\nArtistico" as CA
+actor "Direttore\nFestival" as DF
+actor "Artista" as ART
+actor "Partecipante" as PART
+actor "Responsabile\nSicurezza" as RS
+actor "Tecnico\ndi Sistema" as TS
+
+' ========== GENERALIZZAZIONE ATTORI ==========
+' Il Direttore Festival eredita tutte le capacità del Coordinatore Artistico
+' Citazione testo: "mantiene tutte le capacità del Coordinatore Artistico"
+DF --|> CA
+
+rectangle "Sistema Gestione SoundWave Festival" {
+
+  ' --- Area Gestione Artistica ---
+  usecase UC1 as "Visualizzare
+  Programma Esibizioni"
+  usecase UC2 as "Richiedere
+Modifica Programma"
+  usecase UC3 as "Pubblicare
+Programma Definitivo"
+  usecase UC4 as "Notificare
+Artisti"
+(Selezionare artisti) as sArt
+(Gestire artisti) as gArt
+  ' --- Area Gestione Accessi ---
+  usecase UC5 as "Scansionare
+Biglietto"
+  usecase UC6 as "Verificare
+Validità Biglietto"
+  usecase UC7 as "Registrare
+Accesso"
+
+  ' --- Area Sicurezza ---
+  usecase UC8 as "Monitorare
+Situazione
+--
+E.P.: Se capacità massima raggiunta"
+  usecase UC9 as "Attivare Blocco
+Ingressi"
+  usecase UC10 as "Notificare
+Direttore"
+
+  ' --- Area Manutenzione ---
+  usecase UC11 as "Eseguire
+Manutenzione Sistema"
+  usecase UC12 as "Registrare
+Intervento su Log"
+}
+
+' ========== RELAZIONI ATTORI → CASI D'USO ==========
+ART -- UC1
+CA -- UC2
+DF -- UC3
+PART -- UC5
+RS -- UC8
+RS -- UC9
+TS -- UC11
+CA -- sArt
+CA -- gArt
+
+' ========== RELAZIONI INCLUDE ==========
+' Include = il caso d'uso base DEVE sempre eseguire il caso incluso
+UC3 ..> UC4 : <<include>>
+
+UC5 ..> UC6 : <<include>>
+UC5 ..> UC7 : <<include>>
+
+UC11 ..> UC12 : <<include>>
+
+UC9 ..> UC8 : <<extend>>
+UC9 ..> UC10 : <<include>>
+
+
+note left of "Sistema Gestione SoundWave Festival"
+RNF:
+- Scansioni biglietti rapide
+- alta disponibilità
+- tempi di inattività minimi
+end note
+@enduml
