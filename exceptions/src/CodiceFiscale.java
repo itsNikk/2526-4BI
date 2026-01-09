@@ -13,13 +13,10 @@ public class CodiceFiscale {
          * 3) isDigitOrLetter()
          */
         for (int i = 0; i < cf.length(); i++) {
-            if (!isLetter(cf.charAt(i)) && !Character.isDigit(cf.charAt(i))) {
-                throw new CodiceFiscaleNonValidoException("CF non alfanumerico");
-            }
+            if (!isLetter(cf.charAt(i)) && !Character.isDigit(cf.charAt(i))) throw new CodiceFiscaleNonValidoException("CF non alfanumerico");
         }
 
-        if (!Character.isUpperCase(cf.charAt(MAX_LENGTH - 1)))
-            throw new CodiceFiscaleNonValidoException("ctrl char NON MAIUSCOLO");
+        if (!Character.isUpperCase(cf.charAt(MAX_LENGTH - 1))) throw new CodiceFiscaleNonValidoException("ctrl char NON MAIUSCOLO");
 
         this.cf = cf;
     }
