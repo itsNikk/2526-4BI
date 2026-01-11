@@ -1,8 +1,10 @@
+package cf;
+
 public class CodiceFiscale {
 
     private final int MAX_LENGTH = 16;
 
-    private String cf;
+    private final String cf;
 
     public CodiceFiscale(String cf) throws CodiceFiscaleNonValidoException {
         if (cf.length() != MAX_LENGTH) throw new CodiceFiscaleNonValidoException("CF NON VALIDO");
@@ -13,10 +15,12 @@ public class CodiceFiscale {
          * 3) isDigitOrLetter()
          */
         for (int i = 0; i < cf.length(); i++) {
-            if (!isLetter(cf.charAt(i)) && !Character.isDigit(cf.charAt(i))) throw new CodiceFiscaleNonValidoException("CF non alfanumerico");
+            if (!isLetter(cf.charAt(i)) && !Character.isDigit(cf.charAt(i)))
+                throw new CodiceFiscaleNonValidoException("CF non alfanumerico");
         }
 
-        if (!Character.isUpperCase(cf.charAt(MAX_LENGTH - 1))) throw new CodiceFiscaleNonValidoException("ctrl char NON MAIUSCOLO");
+        if (!Character.isUpperCase(cf.charAt(MAX_LENGTH - 1)))
+            throw new CodiceFiscaleNonValidoException("ctrl char NON MAIUSCOLO");
 
         this.cf = cf;
     }
