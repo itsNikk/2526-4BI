@@ -11,7 +11,7 @@ public class CodiceFiscale {
 
         /*
          *1) for + charAt()
-         * 2) usa il vettore dei caraterri più controllo
+         * 2) usa il vettore dei caratteri più controllo
          * 3) isDigitOrLetter()
          */
         for (int i = 0; i < cf.length(); i++) {
