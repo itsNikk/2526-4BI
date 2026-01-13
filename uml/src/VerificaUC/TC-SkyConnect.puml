@@ -1,0 +1,71 @@
+@startuml
+left to right direction
+
+' ==========================================
+' VERSIONE C - SKYCONNECT AIRPORT
+' ==========================================
+
+:Tecnico\nInfrastrutture: as TI
+:Operatore\nAccettazione: as OA
+:Coordinatore\nMovimenti: as CM
+:Responsabile\nTerminal: as RT
+:Compagnia\nAerea: as CA
+:Supervisore\nSicurezza: as SS
+
+' ========== GENERALIZZAZIONE ATTORI ==========
+' Il Responsabile Terminal ha tutte le funzioni del Coordinatore + autorità esclusiva
+' Citazione: "ha visibilità completa su tutte le funzioni [...] e, in aggiunta"
+RT --|> CM
+
+' ========== SISTEMA ==========
+rectangle "Hub Operativo SkyConnect" {
+
+  ' --- Area Manutenzione ---
+  usecase UC1 as "Eseguir Intervento Manutentivo"
+  usecase UC2 as "Registrare nel Log Centrale"
+
+  ' --- Area Accettazione ---
+  usecase UC3 as "Processare Accettazione Passeggero"
+  usecase UC4 as "Verificare Identità"
+  usecase UC5 as "Catalogare Bagaglio"
+
+  ' --- Area Pianificazione ---
+  usecase UC6 as "Consultare Programma Operativo"
+  usecase UC7 as "Sottoporre Richiesta Variazione"
+  usecase UC8 as "Pubblicare Piano Operativo"
+  usecase UC9 as "Notificare Compagnie e Reparti"
+
+  ' --- Area Sicurezza ---
+  usecase UC10 as "Supervisionare Operazioni
+--
+E.P.:
+condizioni critiche"
+  usecase UC11 as "Attivare Procedura Emergenza"
+  usecase UC12 as "Notificare Responsabile Terminal"
+}
+
+' ========== RELAZIONI ATTORI → CASI D'USO ==========
+TI -- UC1
+OA -- UC3
+CM -- UC7
+RT -- UC8
+CA -- UC6
+SS -- UC10
+SS -- UC11
+
+' ========== RELAZIONI INCLUDE ==========
+' Include = il caso d'uso DEVE sempre eseguire l'altro
+UC1 ..> UC2 : <<include>>
+
+UC3 ..> UC4 : <<include>>
+UC3 ..> UC5 : <<include>>
+
+UC8 ..> UC9 : <<include>>
+
+UC11 ..> UC12 : <<include>>
+
+' ========== RELAZIONI EXTEND ==========
+' Extend = estensione condizionale del caso base
+UC11 ..> UC10 : <<extend>>
+
+@enduml
