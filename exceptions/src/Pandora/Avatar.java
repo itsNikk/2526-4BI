@@ -16,11 +16,11 @@ public class Avatar {
         this.r = new Random();
     }
 
-    public void attacca(PostazioneRDA postazioneRDA) throws ArmaMalfunzionanteException{
+    public void attacca(PostazioneRDA postazioneRDA) throws ArmaMalfunzionanteException, AttccoFallitoException {
         double prob = r.nextDouble();
 
         if (prob <= 0.5) {
             //l'avatar attacca
-        } else throw new ArmaMalfunzionanteException("L'arma "+arma+" di "+nome+ " non funziona");
+        } else throw new AttccoFallitoException("L'arma "+arma+" di "+nome+ " non funziona");
     }
 }
