@@ -3,7 +3,7 @@ package Probability;
 import java.util.Random;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // Math.random vs new Random();
         // /dev/urandom o /dev/random
         Random r = new Random();
@@ -16,6 +16,8 @@ public class Main {
                 throw new RuntimeException("BOOM");
             }
 
+
+            Thread.sleep(1000);
         }
     }
 }
