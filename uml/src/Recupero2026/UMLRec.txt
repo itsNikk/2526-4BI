@@ -1,0 +1,23 @@
+UML rec 2026
+	- Relazioni tra UC e Attori
+	- PlantUML syntax
+	- 
+Attori
+	- Consigliere
+	x Consiglio Comunale
+	- Capo Consigliere
+	- Sindaco
+	- 
+	
+RF 
+	- RF1: inviare com
+	- RF2: richiedere convocazione sessioni straordinarie
+	- RF3: Il CC esegue tutte le funzioni dei Cons
+	- RF4: Solo il CC deve poter organizzare incontri ocn sil sindaco
+
+RNF
+	RNF1 usare i canali centralizzati
+	RNF2 efficenza: 
+	RNF3 trasparenza democratica
+	RNF4: Rapidità nella risposta.
+	

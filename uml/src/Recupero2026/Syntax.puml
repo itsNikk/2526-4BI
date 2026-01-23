@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+
+''UCD: Descrive chi fa cosa nel sistema
+
+''Attori
+''c = Consigliere
+:Consigliere: as c
+
+''UCases
+(Login)
+(Register) as r
+(Verifica dell'età) as e
+'' usecase alias as "descrizione"
+usecase d as "
+descrizione
+--
+E.P.:
+"
+
+c -- (Login)
+c -- r
+r ..> e : <<include>>
+
+@enduml

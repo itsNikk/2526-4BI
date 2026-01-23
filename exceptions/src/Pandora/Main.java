@@ -11,6 +11,8 @@ public class Main {
             System.out.println(e.getMessage());
         } catch (ArmaMalfunzionanteException a) {
 
+        } catch (AttccoFallitoException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
