@@ -2,7 +2,7 @@ package es21SistemaPagamentoOnline;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        System.out.println("=== SISTEMA DI PAGAMENTO E-COMMERCE ===\n");
+        System.out.println("=== SISTEMA DI PAGAMENTO E-COMMERCE ===");
 
         // Creazione carte di test
         CartaDiCredito cartaScaduta = new CartaDiCredito("4532123456789012", 2023, 11, "123", 500.00);
