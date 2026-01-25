@@ -34,6 +34,6 @@ public class Main {
 
         processore.printTransactionLog();
 
-        //System.out.println("Saldo finale carta valida: €" + cartaValida.getSaldo());
+        System.out.println("Saldo finale carta valida: €" + cartaValida.getSaldo());
     }
 }
