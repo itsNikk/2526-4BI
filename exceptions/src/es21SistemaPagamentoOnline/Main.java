@@ -24,6 +24,7 @@ public class Main {
         for (int i = 0; i < 15; i++) {
             boolean esito = processore.effettuaPagamento(cartaValida, 50.00);
 
+            //Non bellissimo da leggere ma ok. Come potremmo fare altrimenti?
             if (esito) {
                 System.out.println("Tentativo " + (i + 1) + ": Successo");
             } else System.out.println("Tentativo " + (i + 1) + ": Fallito");
