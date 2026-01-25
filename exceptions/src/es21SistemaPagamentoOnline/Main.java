@@ -17,10 +17,10 @@ public class Main {
         System.out.println("Tentativo 1: Pagamento con carta scaduta" + cartaScaduta.getNumero());
         processore.effettuaPagamento(cartaScaduta, 50.00);
 
-        System.out.println("\nTentativo 2: Pagamento che supera il saldo " + cartaSaldoBasso.getNumero());
+        System.out.println("Tentativo 2: Pagamento che supera il saldo " + cartaSaldoBasso.getNumero());
         processore.effettuaPagamento(cartaSaldoBasso, 100.00);
 
-        System.out.println("\nTentativo 3-7: Pagamenti con carta valida (random esiti)");
+        System.out.println("Tentativo 3-7: Pagamenti con carta valida (random esiti)");
         for (int i = 0; i < 15; i++) {
             boolean esito = processore.effettuaPagamento(cartaValida, 50.00);
 
