@@ -28,7 +28,7 @@ public class Main {
                 System.out.println("Tentativo " + (i + 1) + ": Successo");
             } else System.out.println("Tentativo " + (i + 1) + ": Fallito");
 
-            // Piccola pausa per rendere più leggibile l'output
+            // Solo per leggibilità
             Thread.sleep(500);
         }
 
