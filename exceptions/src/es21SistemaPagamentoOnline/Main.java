@@ -5,19 +5,19 @@ public class Main {
         System.out.println("=== SISTEMA DI PAGAMENTO E-COMMERCE ===\n");
 
         // Creazione carte di test
-        CartaDiCredito cartaScaduta = new CartaDiCredito("4532123456789012", 11, 2023, "123", 500.00);
+        CartaDiCredito cartaScaduta = new CartaDiCredito("4532123456789012", 2023, 11, "123", 500.00);
 
-        CartaDiCredito cartaSaldoBasso = new CartaDiCredito("5425233430109903", 8, 2027, "456", 15.00);
+        CartaDiCredito cartaSaldoBasso = new CartaDiCredito("5425233430109903", 2027, 8, "456", 15.00);
 
-        CartaDiCredito cartaValida = new CartaDiCredito("4716258050958645", 12, 2028, "789", 1000.00);
+        CartaDiCredito cartaValida = new CartaDiCredito("4716258050958645", 2028, 12, "789", 1000.00);
 
         ProcessorePagamenti processore = new ProcessorePagamenti();
 
         // Scenario di test
-        System.out.println("Tentativo 1: Pagamento con carta scaduta");
+        System.out.println("Tentativo 1: Pagamento con carta scaduta" + cartaScaduta.getNumero());
         processore.effettuaPagamento(cartaScaduta, 50.00);
 
-        System.out.println("\nTentativo 2: Pagamento che supera il saldo");
+        System.out.println("\nTentativo 2: Pagamento che supera il saldo " + cartaSaldoBasso.getNumero());
         processore.effettuaPagamento(cartaSaldoBasso, 100.00);
 
         System.out.println("\nTentativo 3-7: Pagamenti con carta valida (random esiti)");
@@ -34,6 +34,6 @@ public class Main {
 
         processore.printTransactionLog();
 
-        System.out.println("Saldo finale carta valida: €" + cartaValida.getSaldo());
+        //System.out.println("Saldo finale carta valida: €" + cartaValida.getSaldo());
     }
 }
