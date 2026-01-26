@@ -35,8 +35,13 @@ public class InterfacciaHotel {
     }
 
     public void stampaStorico() {
-        //for su array e stampa
+        System.out.println("\n=== STORICO OPERAZIONI ===");
+        for (String operazione : storicoOperazioni) System.out.println("- " + operazione);
+        System.out.println("==========================\n");
     }
 
 
+    public ArrayList<String> getStoricoOperazioni() {
+        return storicoOperazioni;
+    }
 }
