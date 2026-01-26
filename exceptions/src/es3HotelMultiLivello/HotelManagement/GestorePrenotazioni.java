@@ -17,7 +17,8 @@ public class GestorePrenotazioni {
     }
 
     public void prenota(String numeroCamera, String nomeCliente) throws PrenotazioneException {
-        if (nomeCliente.isEmpty()) throw new ClienteNonValidoException("Bisogna fornire nome cliente");
+        if (nomeCliente == null || nomeCliente.isEmpty())
+            throw new ClienteNonValidoException("Bisogna fornire nome cliente");
 
         try {
             if (!db.verificaDisponibilita(numeroCamera))
