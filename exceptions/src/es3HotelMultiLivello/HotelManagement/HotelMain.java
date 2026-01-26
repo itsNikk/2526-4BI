@@ -13,8 +13,8 @@ public class HotelMain {
         richiestaConRetry(interfaccia, db, "101", "Mario Rossi");
         richiestaConRetry(interfaccia, db, "102", "Laura Bianchi");
         richiestaConRetry(interfaccia, db, "101", "Giuseppe Verdi");  // Camera occupata
-        richiestaConRetry(interfaccia, db, "103", "");                 // Cliente non valido
-        richiestaConRetry(interfaccia, db, "104", null);               // Cliente null
+        richiestaConRetry(interfaccia, db, "103", "");                 // Who's this guy?!
+        richiestaConRetry(interfaccia, db, "104", null);               // WHO'S THIS GUY!?
         richiestaConRetry(interfaccia, db, "205", "Anna Neri");
         richiestaConRetry(interfaccia, db, "206", "Carlo Gialli");
         richiestaConRetry(interfaccia, db, "102", "Francesca Viola");  // Camera occupata
