@@ -25,6 +25,7 @@ public class HotelMain {
         interfaccia.stampaStorico();
     }
 
+    //NON era scritto, è solo un metodo di supporto (helper) per testare in maniera più realistica il sistema
     private static void richiestaConRetry(InterfacciaHotel interfaccia, DatabaseSimulato db,
                                           String camera, String cliente) {
         interfaccia.richiestaPrenotazione(camera, cliente);
@@ -38,6 +39,7 @@ public class HotelMain {
 
     private static boolean ultimoErroreDiSistema(InterfacciaHotel interfaccia) {
         ArrayList<String> storico = interfaccia.getStoricoOperazioni();
+        //Perchè 2?
         if (storico.size() < 2) return false;
 
         String penultimoMsg = storico.get(storico.size() - 2);
