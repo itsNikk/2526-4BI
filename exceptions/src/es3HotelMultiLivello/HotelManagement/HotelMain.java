@@ -9,7 +9,7 @@ public class HotelMain {
         GestorePrenotazioni gestore = new GestorePrenotazioni(db);
         InterfacciaHotel interfaccia = new InterfacciaHotel(gestore);
 
-        // 10 richieste di prenotazione
+        // Create a caso, così testo tutti i casi che mi interessano (NON E' OPZIONALE)
         richiestaConRetry(interfaccia, db, "101", "Mario Rossi");
         richiestaConRetry(interfaccia, db, "102", "Laura Bianchi");
         richiestaConRetry(interfaccia, db, "101", "Giuseppe Verdi");  // Camera occupata
