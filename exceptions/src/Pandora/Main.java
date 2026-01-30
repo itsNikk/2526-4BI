@@ -2,10 +2,10 @@ package Pandora;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+        Coordinata c = new Coordinata(46, 85);
         PostazioneRDA postazione = new PostazioneRDA(c);
         for (int i = 0; i < 30; i++) {
             try {
-                Coordinata c = new Coordinata(46, 85);
                 Arma z = new Arma();
                 Avatar a = new Avatar("Jake", z, 123);
 
