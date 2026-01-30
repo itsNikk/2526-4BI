@@ -20,7 +20,11 @@ public class Avatar {
         double prob = r.nextDouble();
 
         if (prob <= 0.5) {
-            //l'avatar attacca
-        } else throw new AttccoFallitoException("L'arma "+arma+" di "+nome+ " non funziona");
+            //l'avatar attacca ma solo sen on ha problemi con l'arma.
+            double weaponFailure = r.nextDouble();
+            if (weaponFailure <= 0.3) {
+                throw new ArmaMalfunzionanteException("L'arma di " + this.nome + " non funziona.");
+            } else postazioneRDA.riceviDanno(forzaAttaco);
+        } else throw new AttccoFallitoException(nome + " non attacca.");
     }
 }

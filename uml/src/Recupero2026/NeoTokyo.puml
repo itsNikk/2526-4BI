@@ -1,8 +1,14 @@
 @startuml
-:Consigliere:
+:Consigliere: as c
+:Capo Consigliere: as cc
+
 
 
 (inviare com)
+(organizzare incontri sindaco)
 
+''Generalizzazione
+c <|-- cc
 
+cc -- (organizzare incontri sindaco)
 @enduml

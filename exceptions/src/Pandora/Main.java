@@ -3,7 +3,7 @@ package Pandora;
 public class Main {
     public static void main(String[] args) {
         try {
-            Coordinata c = new Coordinata(16516, 468468);
+            Coordinata c = new Coordinata(46, 85);
             Arma z = new Arma();
             Avatar a = new Avatar("dnfjf", z, 123);
             a.attacca(new PostazioneRDA());
