@@ -16,6 +16,7 @@ public class AdderThread extends Thread {
             try {
                 sem.acquire();
                 counter.add(1);
+                sem.release();
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
