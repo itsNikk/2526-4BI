@@ -14,7 +14,7 @@ public class Main {
         boolean toEliminate = new Random().nextBoolean();
         if (toEliminate) a.interrupt();
         else b.interrupt();
-*/d
+*/
         try {
             a.join();
             b.join();
