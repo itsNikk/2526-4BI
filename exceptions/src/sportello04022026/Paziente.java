@@ -45,4 +45,9 @@ public class Paziente {
     public void setDiagnosiEffettuata(boolean diagnosiEffettuata) {
         this.diagnosiEffettuata = diagnosiEffettuata;
     }
+
+    @Override
+    public String toString() {
+        return "[ " + codGravita + "] " + name;
+    }
 }
