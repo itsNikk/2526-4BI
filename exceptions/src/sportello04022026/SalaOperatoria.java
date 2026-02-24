@@ -10,8 +10,13 @@ public class SalaOperatoria {
     }
 
     //TODO: occupa() -> occupa la sala se libera, altrimenti eccezione
-    public void occupa() {
+    public void occupa() throws SalaOperatoriaOccupataException {
         if (isBusy) throw new SalaOperatoriaOccupataException(numeroSala);
         this.isBusy = true;
+    }
+
+    @Override
+    public String toString() {
+        return "Sala-" + numeroSala + "TF";
     }
 }
