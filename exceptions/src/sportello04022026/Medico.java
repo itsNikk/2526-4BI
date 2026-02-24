@@ -25,6 +25,14 @@ public class Medico {
         this.pazienteCorrente = null;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public boolean isBusy() {
+        return isBusy;
+    }
+
     @Override
     public String toString() {
         if (!isBusy) {
