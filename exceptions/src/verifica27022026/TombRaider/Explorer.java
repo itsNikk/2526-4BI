@@ -6,10 +6,14 @@ public class Explorer {
     private String name;
     private int torches;
     private ArrayList<Item> inventory;
+    private int inventoryWeight;
+
+    private final int MAX_INVENTORY_WEIGHT = 10;
 
     public Explorer(String name, int torches) {
         this.name = name;
         this.torches = torches;
+        this.inventoryWeight = 0;
         this.inventory = new ArrayList<>();
     }
 
@@ -34,6 +38,10 @@ public class Explorer {
     }
 
     public void addItem(Item item) {
+        //Just a basic guard, I'll update later
+        if (inventoryWeight >= MAX_INVENTORY_WEIGHT) return;
+
         inventory.add(item);
+        inventoryWeight += item.getWeight();
     }
 }
