@@ -40,7 +40,6 @@ public class Explorer {
     }
 
     public void addItem(Item item) throws InventoryFullException {
-        //Just a basic guard, I'll update later
         if (inventoryWeight + item.getWeight() >= MAX_INVENTORY_WEIGHT)
             throw new InventoryFullException("Inventario pieno. Rimuovo oggetto più pesante.");
         inventory.add(item);
