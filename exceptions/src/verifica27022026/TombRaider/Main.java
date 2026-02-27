@@ -4,7 +4,8 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         int torches = 10;
         int corridors = 15;
-        Explorer explorer = new Explorer("Indiana", torches);
+        int maxInventoryWeight = 10;
+        Explorer explorer = new Explorer("Indiana", torches, maxInventoryWeight);
 
         Tomb tomb = new Tomb(explorer, corridors);
         try {

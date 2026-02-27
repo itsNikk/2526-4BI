@@ -50,8 +50,13 @@ public class Tomb {
                 //Ottengo nome random
                 String itemName = itemNames[random.nextInt(itemNames.length)];
                 Item item = new Item(itemName, itemWeight);
-                System.out.println("Corridoio: " + currentCorridor + ". Trovato " + item.getName() + "(" + item.getWeight() + "kg)");
-                explorer.addItem(item);
+                try {
+                    explorer.addItem(item);
+                    System.out.println("Corridoio: " + currentCorridor + ". Trovato " + item.getName() + "(" + item.getWeight() + "kg). Peso totale inventario: " + explorer.getInventoryWeight() + "kg.");
+                } catch (InventoryFullException e) {
+                    System.out.println(e.getMessage());
+                    explorer.removeHeaviestItemAndAdd(item);
+                }
             }
             //endregion
             if (explorer.hasNoTorches()) {
