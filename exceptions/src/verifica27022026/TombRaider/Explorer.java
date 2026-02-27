@@ -1,12 +1,16 @@
 package verifica27022026.TombRaider;
 
+import java.util.ArrayList;
+
 public class Explorer {
     private String name;
     private int torches;
+    private ArrayList<Item> inventory;
 
     public Explorer(String name, int torches) {
         this.name = name;
         this.torches = torches;
+        this.inventory = new ArrayList<>();
     }
 
     public String getName() {
@@ -27,5 +31,9 @@ public class Explorer {
 
     public boolean hasNoTorches() {
         return torches <= 0;
+    }
+
+    public void addItem(Item item) {
+        inventory.add(item);
     }
 }
