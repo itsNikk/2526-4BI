@@ -14,13 +14,19 @@ public class Buffer {
 
         //Se buffer pieno, aspetta!
         if (numItemsInside == MAXSIZE) wait();
-        this.value = newValue;
 
+        numItemsInside++;
+        notify();
+        this.value = newValue;
     }
 
     //CHiamato dal Consumer
-    public synchronized int getValue() {
+    public synchronized int getValue() throws InterruptedException {
 
+        if (numItemsInside == 0) wait();
+
+        numItemsInside--;
+        notify();
         return this.value;
     }
 }

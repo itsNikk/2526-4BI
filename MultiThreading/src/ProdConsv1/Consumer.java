@@ -10,7 +10,12 @@ public class Consumer extends Thread {
     @Override
     public void run() {
         for (int i = 1; i <= 10; i++) {
-            System.out.print("C:" + buffer.getValue());
+
+            try {
+                System.out.print("C:" + buffer.getValue());
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }
