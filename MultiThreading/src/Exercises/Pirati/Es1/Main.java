@@ -1,11 +1,13 @@
 package Exercises.Pirati.Es1;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
+
         final int MAX_PIRATES = 3;
-        Stiva stiva = new Stiva(30);
+        Stiva stiva = new Stiva(5);
 
         //Threads...
         ArrayList<Pirata> pirates = new ArrayList<>();
