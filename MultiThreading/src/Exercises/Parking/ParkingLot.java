@@ -9,13 +9,19 @@ public class ParkingLot {
         this.availableSlots = MAX;
     }
 
-    public void enter(Auto auto) throws InterruptedException {
-        while (availableSlots < 0) {
+    public synchronized void enter(Auto auto) throws InterruptedException {
+        while (availableSlots == 0) {
             System.out.println(auto.getName() + " in attesa (parcheggio pieno)");
             wait();
         }
         availableSlots--;
         System.out.println(auto.getName() + " entrata. Posti disponibili: " + availableSlots);
+    }
+
+    public void exit(Auto auto) {
+        availableSlots++;
+        System.out.println(auto.getName() + " uscita. Posti disponibili: " + availableSlots);
+        notifyAll();
     }
 
 
