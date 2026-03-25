@@ -1,10 +1,15 @@
 package Exercises.Parking;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+
+        //1. Tempo max di simulazione. il pacheggio chiude dopo F secondi.
+        //2. Non tutte i veicoli sono uguali. alcuni occupano 1 posto, altri 2, altre 3.
+
         ParkingLot parkingLot = new ParkingLot(5);
 
         List<Auto> autos = new ArrayList<>();
