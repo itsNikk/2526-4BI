@@ -30,11 +30,11 @@ public class Buffer {
         return full;
     }
 
-    public void setFull(boolean full) {
+    private void setFull(boolean full) {
         this.full = full;
     }
 
-    public int getValue() {
+    private int getValue() {
         return value;
     }
 
