@@ -21,14 +21,17 @@ public class Volo extends Thread {
                 //1) si prepara
                 sleep(2000);
                 //acquisisce in base al tipo
-                if(type == TipoVolo.NAZIONALE){
+                if (type == TipoVolo.NAZIONALE) {
                     aeroporto.acquisisciGateNazionle(this);
                 }
                 //vola
                 sleep(4500);
                 //rilascia
                 //TODO: if sul tipo e richiamo del metodo relativo :)
-            } catch (InterruptedException e){
+                if (type == TipoVolo.NAZIONALE) {
+                    aeroporto.rilasciaGateNazionle(this);
+                }
+            } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
         }
