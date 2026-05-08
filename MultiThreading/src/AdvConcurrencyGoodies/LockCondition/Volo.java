@@ -18,17 +18,21 @@ public class Volo extends Thread {
     public void run() {
         for (int i = 0; i < MAX_ITERATION; i++) {
             try {
-                //1) si prepara
+                //1) si prepara (con math random ovviamente)
+                System.out.println(getName() + " si prepara.");
                 sleep(2000);
                 //acquisisce in base al tipo
                 if (type == TipoVolo.NAZIONALE) {
+                    System.out.println(getName() + " richiede gate nazionale");
                     aeroporto.acquisisciGateNazionle(this);
                 }
                 //vola
+                System.out.println(getName() + "imbarca...");
                 sleep(4500);
                 //rilascia
                 //TODO: if sul tipo e richiamo del metodo relativo :)
                 if (type == TipoVolo.NAZIONALE) {
+                    System.out.println(getName() + " rilascia gate nazionale");
                     aeroporto.rilasciaGateNazionle(this);
                 }
             } catch (InterruptedException e) {

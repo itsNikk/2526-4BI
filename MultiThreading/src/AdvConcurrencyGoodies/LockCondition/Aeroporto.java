@@ -30,22 +30,25 @@ public class Aeroporto {
         try {
             while (gateNazionaliLiberi == 0) attendiNazionali.await();
             gateNazionaliLiberi--;
-            System.out.println("VRROM VROoom");
+            System.out.println("[GATN]:" + v.getName() + ": occupato gate. liberi: " + gateNazionaliLiberi);
         } finally {
             lock.unlock();
         }
 
     }
 
-    public void rilasciaGateNazionle(Volo v) throws InterruptedException{
+    public void rilasciaGateNazionle(Volo v) throws InterruptedException {
         lock.lock();
-
-        gateNazionaliLiberi++;
-        //notify() = signal()
-        attendiNazionali.signal();
-        //TODO (si legge tu-dù): fare sout per mostrer nome del Volo e posti liberi attuali
-        //TODO: finally
-        lock.unlock();
+        try {
+            gateNazionaliLiberi++;
+            //notify() = signal()
+            attendiNazionali.signal();
+            System.out.println("[GATN]:" + v.getName() + ": liberato gate. liberi: " + gateNazionaliLiberi);
+            //TODO (si legge tu-dù): fare sout per mostrer nome del Volo e posti liberi attuali
+            //TODO: finally
+        } finally {
+            lock.unlock();
+        }
     }
 
 
